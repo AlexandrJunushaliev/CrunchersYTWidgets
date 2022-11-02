@@ -1,5 +1,5 @@
-export const get1cData = async (emails, periods, userId) => {
-    let response = await postData("https://yt-schedule-control.hightech.group/api/plan/periods", {
+/*export const get1cData = async (emails, periods, userId) => {
+    let response = await postData("", {
         emails, periods: periods.map(period => {
             return {from: period.from.toISOString(), to: period.to.toISOString()}
         }), userId
@@ -19,10 +19,10 @@ async function postData(url = '', data = {}) {
         body: JSON.stringify(data)
     });
     return await response.json();
-}
+}*/
 
 
-/*function randomInteger(min, max) {
+function randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
@@ -32,7 +32,7 @@ export const get1cData = async (emails, periods,userId) => {
                 return {
                     from: period.from.toISOString(),
                     to: period.to.toISOString(),
-                    plan: randomInteger(1, 10)
+                    plan: -1
                 }
             }
         );
@@ -44,4 +44,4 @@ export const get1cData = async (emails, periods,userId) => {
             .forEach(period => period.label = periods
                 .filter(reqPeriod => reqPeriod.from.toISOString() === period.from && reqPeriod.to.toISOString() === period.to)[0].label));
     return response;
-};*/
+};
